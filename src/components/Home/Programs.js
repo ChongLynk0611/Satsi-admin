@@ -9,7 +9,7 @@ import useFetch from '../CustomHooks/useFetch';
 import { Wrapper, FadeIn } from "../styled";
 
 const Programs = () => {
-    const { data, isPending, error } = useFetch(process.env.REACT_APP_API_ENDPOINT + 'Categories');
+    const { data, isPending, error } = useFetch(process.env.REACT_APP_API_URL + 'Categories');
     const [active, setActive] = useState(0);
     const imgUrls = [
         'https://www.amec.com.vn/wp-content/uploads/2020/01/shutterstock_637324168-696x465-1.jpg',
