@@ -76,9 +76,15 @@ const Carousel = styled(Slider)`
 `
 
 const ImgContainer = styled.div`
-    & img{
+    img{
         max-width: 100%;
         height: auto;
+    }
+
+    @media screen and (max-width: 500px){
+        img {
+            min-height: 18rem;
+        }
     }
 `
 

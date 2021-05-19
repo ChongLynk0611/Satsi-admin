@@ -205,7 +205,7 @@ const ItemRightSide = styled.a`
         }
         img{
             margin-bottom: 1rem;
-            height: auto;
+            height: 100%;
             width: auto;
         }
     }
