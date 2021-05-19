@@ -19,7 +19,7 @@ const News = () => {
             type: 'TIN TỨC',
             author: 'ADMIN',
             date: new Date(),
-            img: 'https://image.thanhnien.vn/150x100/uploaded/hoangnam/2021_05_18/a-1_fuuk.jpg',
+            img: 'https://images.pexels.com/photos/1815257/pexels-photo-1815257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
             id: 2,
         },
         {
@@ -28,7 +28,7 @@ const News = () => {
             type: 'TIN TỨC',
             author: 'ADMIN',
             date: new Date(),
-            img: 'https://image.thanhnien.vn/150x100/uploaded/hoangnam/2021_05_17/a1_vtpj.jpeg',
+            img: 'https://images.pexels.com/photos/4498039/pexels-photo-4498039.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
             id: 3,
         },
         {
@@ -37,7 +37,7 @@ const News = () => {
             type: 'TIN TỨC',
             author: 'ADMIN',
             date: new Date(),
-            img: 'https://image.thanhnien.vn/150x100/uploaded/haanh/2021_05_17/truongdh_ksae.jpg',
+            img: 'https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
             id: 4,
         },
     ];
