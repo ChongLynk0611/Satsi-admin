@@ -60,12 +60,19 @@ const StyledWrapper = styled(Wrapper)`
 
     @media screen and (max-width: 1000px){
         h1{
-            font-size: 3rem;
+            font-size: 2.8rem;
         }
         p{
             margin: 1rem 2rem;
+            font-size: 1.4rem;
         }
     }
+
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+        }
+    }  
   
 `
 

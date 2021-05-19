@@ -102,15 +102,25 @@ const News = () => {
 }
  
 const StyledWrapper = styled(Wrapper)`
-    padding: 2.5rem 0;
+    padding: 2.5rem 0 0;
     text-align: center;
     margin: 2rem auto;
     h1{
         font-size: ${props => props.theme.fontSize.h1};
-        font-weight: 400;
         color: ${props => props.theme.colors.main};
     }
     border-top: 1px solid black;
+    @media screen and (max-width: 1000px){
+        h1{
+            font-size: 2.8rem;
+        }
+    }
+
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+        }
+    } 
 `
 const NewsContainer = styled.div`
     margin: 2rem 0;
@@ -129,16 +139,24 @@ const LeftSide = styled.a`
         display: inline-block;
         height: 30rem;
         width: 100%;
-        border: 0.1px solid black;
+        /* border: 0.1px solid black; */
         object-fit: cover;
+    
+        &:hover{
+            opacity: 0.7
+        }
     }
 
     & > div {
-        color: ${props => props.theme.colors.main};
+        color: gray;
         /* background-color: #4e2f2a; */
         padding: 1rem 0 2rem;
         h3 {
+            color: black;
             margin: 0.5rem 0;
+            &:hover{
+                color: #b32c02;
+            }
         }
     }
 `
@@ -148,6 +166,7 @@ const RightSide = styled.div`
     display: grid;
     grid-row: auto auto auto;
     grid-gap: 5%;
+
     @media screen and (max-width: 838px){
         margin: 2rem 0 0 0;
         grid-gap: 2%;
@@ -158,12 +177,16 @@ const ItemRightSide = styled.a`
     color: black;
     text-decoration: none;
     display: flex;
-    color: ${props => props.theme.colors.main};
+    color: gray;
 
     img {
-        width: 20rem;
-        border: 1px solid black;
+        height: 10rem;
+        width: auto;
+        /* border: 1px solid black; */
         object-fit: cover;
+        &:hover{
+            opacity: 0.7
+        }
     }
 
     & > div {
@@ -177,10 +200,13 @@ const ItemRightSide = styled.a`
 
     @media screen and (max-width: 500px){
         flex-direction: column;
+        & > div {
+            margin-left: 0;
+        }
         img{
-            width: 100%;
             margin-bottom: 1rem;
-            height: 25rem;
+            height: auto;
+            width: auto;
         }
     }
 `
@@ -189,7 +215,11 @@ const ItemRightSide = styled.a`
 const Content = styled.div`
     text-align: left;
     h3 {
-        font-size: 1.5rem;
+        color: black;
+        font-size: 1.55rem;
+        &:hover{
+            color: #b32c02;
+        }
     }
 
     & > p{

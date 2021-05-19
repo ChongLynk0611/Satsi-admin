@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 import useFetch from '../CustomHooks/useFetch';
-import { Wrapper, FadeIn } from "../styled";
+import { Wrapper, TurnInRight } from "../styled";
 
 const Programs = () => {
     const { data, isPending, error } = useFetch(process.env.REACT_APP_API_URL + 'Categories');
@@ -30,14 +30,17 @@ const Programs = () => {
         arrows:true,
         dots: false,
         speed: 1000,
+        infinite: true,
         autoplay: true,
-        afterChange: (current) => setActive(current)
+        beforeChange: (current, next) => {
+            setActive(current);
+        }
     };
 
     settings = is1000px ? {
         ...settings,
         slidesToShow: 1,
-        speed: 5000,
+        speed: 3000,
         arrows: true
     } : settings;
 
@@ -57,7 +60,7 @@ const Programs = () => {
                         <StyledSlider {...settings} on={(e) => console.log(e)}>
                             { data.data.map( (program, index) => (
                                 <h3
-                                    className={index === active ? 'active' : ''}
+                                    className={index === active+1 ? 'active' : ''}
                                     key={program.CategoryId}
                                     onClick={() => handleClick(index)}
                                 >{program.CategoryName}</h3>
@@ -83,6 +86,7 @@ const Programs = () => {
 }
 
 const Container = styled.div`
+    overflow: hidden;
 `
 
 const StyledWrapper = styled(Wrapper)`
@@ -101,7 +105,7 @@ const StyledWrapper = styled(Wrapper)`
             object-fit: cover;
             border: 1px solid black;
             background-color: white;
-            animation: ${FadeIn} 2s ease-out;
+            animation: ${TurnInRight} 2s ease-out;
         }
     }
 
@@ -112,7 +116,7 @@ const StyledWrapper = styled(Wrapper)`
         div{
             img{
                 opacity: 0.25;
-                animation: none;
+                /* animation: none; */
                 z-index: 0;
                 position: absolute;
                 top: 0;
@@ -127,8 +131,9 @@ const StyledWrapper = styled(Wrapper)`
 const ContentContainer = styled.div`
     position: relative;
     color: ${props => props.theme.colors.text};
+
     .active{
-        color: #aaa;
+        color: ${props => props.theme.colors.text};
     }
 
     .slick-track{
@@ -149,6 +154,7 @@ const ContentContainer = styled.div`
     }
 
     h3{
+        color: #aaa;
         text-align: center;
         font-size: 1.8rem;
         /* padding: 0.5rem 0; */
@@ -160,8 +166,10 @@ const ContentContainer = styled.div`
 
     ul{
         font-size: 1.6rem;
-        margin: 3rem 2rem 0 0.5rem;
-        line-height: 2.6rem;
+        margin: 3rem 2rem 0 1rem;
+        li{
+            margin: 1.6rem 0;
+        }
     }
 
     #link{
@@ -181,7 +189,7 @@ const ContentContainer = styled.div`
     }
 
     p,a {
-        animation: ${FadeIn} 1.5s ease-out;
+        animation: ${TurnInRight} 1s ease-out;
     }
 
     @media screen and (max-width: 1156px){
@@ -212,14 +220,14 @@ const ContentContainer = styled.div`
         margin: 2rem;
         padding-right: 0;
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: black;
         }
 
         h3{
             color: ${props => props.theme.colors.main};
             font-size: 2rem;
-            padding: 1rem 0;
+            padding: 1rem 0 0.5rem;
             cursor: pointer;
             &:hover{
                 opacity: 0.6;
@@ -227,6 +235,8 @@ const ContentContainer = styled.div`
         }
 
         ul{
+            margin: 0;
+            margin-bottom: 2rem;
             li{
                 color: black;
                 font-weight: 500;
@@ -250,13 +260,18 @@ const ContentContainer = styled.div`
         .slick-next:before, .slick-prev:before{
             color: ${props => props.theme.colors.main};
         }
+    }
 
-        @media screen and (max-width: 1000px){
-            ul{
-                margin: 0;
-            }
-            h3{
-                padding-bottom: 0.5rem;
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+        }
+        
+        ul{
+            font-size: 1.6rem;
+            margin: 0;
+            li{
+                margin: 1rem 0;
             }
         }
     }

@@ -47,11 +47,15 @@ const ReputaionContainer = styled.div`
     /* background-color: ${props => props.theme.colors.main}; */
 `
 const StyledWrapper = styled(Wrapper)`
-    padding: 4rem 0;
+    padding: 2rem 0 4rem;
     text-align: center;
     color: ${props => props.theme.colors.main};
     h1{
         font-size: ${props => props.theme.fontSize.h1};
+        @media screen and (max-width: 1051px){
+            font-size: 2.8rem;
+        }
+
         @media screen and (max-width: 615px){
             font-size: 2rem;
         }
@@ -66,10 +70,11 @@ const StyledWrapper = styled(Wrapper)`
 
 const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
-    grid-gap: 6.5%;
+    grid-template-columns: 21% 21% 21% 21%;
+    grid-gap: 2.5%;
     justify-content: center;
     align-items: center;
+    margin: 1.8rem 0 2.2rem;
     @media screen and (max-width: 1300px){
         grid-template-columns: 50% 50%;
         grid-gap: 3%;
@@ -98,7 +103,7 @@ const Card = styled.div`
         width: 20rem;
         object-fit: cover;
         border-radius: 50%;
-        border: 1px solid gray;
+        /* border: 1px solid gray; */
     }
     h2{
         color: ${props => props.theme.colors.main};

@@ -93,13 +93,7 @@ const Container = styled.div`
 `
 
 const StyledWrapper = styled(Wrapper)`
-    margin: 5rem auto;
-
-    @media screen and (max-width: 700px){
-        h1{
-            font-size: 1rem;
-        }
-    }
+    margin: 4rem auto 5rem;
 
     form {
         border: 2px solid rgba(0,0,0,0.3);
@@ -191,11 +185,23 @@ const Title = styled.div`
     }
     p{
         font-size: ${props => props.theme.fontSize.p};
-        margin: 2rem;
+        margin: 2rem 2rem 3rem;
         @media screen and (max-width: 700px){
             font-size: 1.5rem;
         }
     }
+
+    @media screen and (max-width: 1000px){
+        h1{
+            font-size: 2.8rem;
+        }
+    }
+
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+        }
+    } 
 `
 
 export default ContactUs;

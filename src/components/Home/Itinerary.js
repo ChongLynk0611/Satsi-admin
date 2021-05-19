@@ -17,11 +17,10 @@ const Itinerary = () => {
  
 const Container = styled.div`
     background-color: ${props => props.theme.colors.text};
-    padding: 1rem 0 ;
 `
 
 const StyledWrapper = styled(Wrapper)`
-    margin-bottom: 40px;
+    margin-bottom: 5rem;
     a{
         display: flex;
         flex-direction: column;
@@ -29,17 +28,17 @@ const StyledWrapper = styled(Wrapper)`
         align-items: center;
         background-color: ${props => props.theme.colors.main};
         color: ${props => props.theme.colors.text};
-        height: 25rem;
+        padding: 2rem;
         text-decoration: none;
     
     }
 
     a h1{
         font-size: ${props => props.theme.fontSize.h1};
-        padding: 2rem;
+        padding-bottom: 2rem;
     }
-    a p{
-        margin: 0 10rem;
+    p{
+        margin: 0 20rem;
         line-height: rem;
         font-size: ${props => props.theme.fontSize.p};
     }
@@ -49,14 +48,23 @@ const StyledWrapper = styled(Wrapper)`
             opacity: 0.6;
         }
     }
-    @media screen and (max-width: 838px){
-        h1{
-            font-size: 2.5rem;
+    @media screen and (max-width: 1051px){
+        a h1{
+            font-size: 2.8rem;
+            text-align: center;
         }
         a p{
-            margin: 0 1rem;
+            text-align: center;
+            margin: 0 6rem;
+            font-size: 1.4rem;
         }
     }
+
+    @media screen and (max-width: 615px){
+        a h1{
+            font-size: 2rem;
+        }
+    }  
 `
 
 export default Itinerary;

@@ -43,13 +43,13 @@ const Feedback = () => {
                         <img src='https://imgs.vietnamnet.vn/Images/2016/12/17/08/20161217083351-3.jpg' alt="abc" />
                         <h2>Bạn Nguyễn Thị Thùy Trang</h2>
                         <p>Hà Nội</p>
-                        <p className="contentFeedBack">Hiện mình đang học nghề hưởng lương ngành khách sạn tại CHLB Đức. Mình sang đây năm 2020 nhờ sự tư vấn và hỗ trợ rất nhiệt tình của SATSi. Nếu không có Viện giúp đỡ thì chắc có lẽ hành trình du học của mình không được suôn sẻ như vậy. Thật may vì năm đó mình đã quyết định tìm đến SATSi! Dù chỉ mới sang được một năm nhưng giờ mình đã được phát triển rất nhiều về kỹ năng, ngôn ngữ, kiến thức, đồng thời có được công việc với thu nhập tốt hàng tháng.</p>
+                        <p className="contentFeedBack">Hiện mình đang học nghề hưởng lương ngành khách sạn tại CHLB Đức. Mình sang đây năm 2020 nhờ sự tư vấn và hỗ trợ rất nhiệt tình của SATSi. Nếu không có Viện giúp đỡ thì chắc có lẽ hành trình du học của mình không được suôn sẻ như vậy. Thật may vì năm đó mình đã quyết định tìm đến SATSi!</p>
                     </Card>
                     <Card>
                         <img src="https://vnn-imgs-f.vgcloud.vn/2021/03/01/17/giai-phap-tang-chat-luong-hoc-truc-tuyen-cho-tre-tieu-hoc-7.jpg" alt="abc" />
                         <h2>Bạn Trịnh Hoàng Minh</h2>
                         <p>Bắc Giang</p>
-                        <p className="contentFeedBack">Du học nghề Đức hiện đang là xu hướng nên hồi đầu mình cũng rất băn khoăn, sợ bị lừa, tự thân vận động thì lại không rõ thủ tục. Sau một lần tình cờ biết đến SATSi qua chương trình tư vấn hướng nghiệp, mình quyết định kết nối với Viện luôn bởi Viện trực thuộc Bộ KH&CN và hành trình du học của mình mở ra từ đây. Hiện mình đang học ngành cơ khí và được trợ cấp hàng tháng ổn định. Cảm ơn SATSi đã mang đến cho mình cơ hội học tập này!</p>
+                        <p className="contentFeedBack">Du học nghề Đức hiện đang là xu hướng nên hồi đầu mình cũng rất băn khoăn, sợ bị lừa, tự thân vận động thì lại không rõ thủ tục. Sau một lần tình cờ biết đến SATSi qua chương trình tư vấn hướng nghiệp, mình quyết định kết nối với Viện luôn bởi Viện trực thuộc Bộ KH&CN và hành trình du học của mình mở ra từ đây.</p>
                     </Card>
                     <Card>
                         <img src='https://static2.yan.vn/YanNews/2167221/201902/nam-sinh-vien-viet-nam-la-nhan-vien-cua-facebook-va-google-eb2c5afa.jpg' alt="abc" />
@@ -70,7 +70,7 @@ const Container = styled.div`
 `
 const StyledWrapper = styled(Wrapper)`
     text-align: center;
-    padding: 5rem 0;
+    padding: 4rem 0 3.5rem;
 
     color: ${props => props.theme.colors.main};
 
@@ -86,14 +86,30 @@ const StyledWrapper = styled(Wrapper)`
         width: 90%;
     }
 
+    @media screen and (max-width: 1000px){
+        h1{
+            font-size: 2.8rem;
+        }
+    }
+
     @media screen and (max-width: 838px) {
         width: 100%;
-    }
+    }   
+
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+        }
+    }  
 `
 
 const StyledSlider = styled(Slider)`
+    .slick-track{
+        margin-bottom: 1rem;
+    }
     & .slick-dots {
         color: ${props => props.theme.colors.main};
+        text-align: center;
     }
 
     & .slick-dots .slick-active button::before {
@@ -110,13 +126,12 @@ const StyledSlider = styled(Slider)`
 const Card = styled.div`
     border-radius: 1.5rem;
     border: 0.1px solid ${props => props.theme.colors.main};
-    height: auto;
+    min-height: 40rem;
     text-align: center;
     img{
         height: 12rem;
         width: 12rem;
         border-radius: 50%;
-        border: 1px solid gray;
         margin: 2rem auto;
         object-fit: cover
     }

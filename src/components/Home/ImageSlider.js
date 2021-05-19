@@ -13,7 +13,6 @@ const ImageSlider = () => {
         dots: true,
         infinite: true,
         speed: 2000,
-        fade: true,
         arrows: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -45,7 +44,11 @@ const Carousel = styled(Slider)`
 
     & .slick-prev::before, & .slick-next::before {
         font-size: 3.6rem;
-        color: ${props => props.theme.colors.main};
+        color: gray;
+        opacity: 1;
+    }
+
+    & .slick-prev:hover::before, & .slick-next:hover::before{
         opacity: 0.4;
     }
 
@@ -61,6 +64,14 @@ const Carousel = styled(Slider)`
     & .slick-dots button::before {
         color: ${props => props.theme.colors.main};
         font-size: 0.8rem;
+    }
+
+    @media screen and (max-width: 500px){
+        & .slick-prev::before, & .slick-next::before {
+            font-size: 3.6rem;
+            color: ${props => props.theme.colors.main};
+            opacity: 0.4;
+        }
     }
 `
 

@@ -8,7 +8,7 @@ const Introduction = () => {
         <IntroductionWrapper>
             <Description>
                 <Link to="/gioi-thieu">
-                    <h1>SATSI - VIỆN ĐÀO TẠO KHỞI NGHIỆP VÀ ỨNG DỤNG KHOA HỌC CÔNG NGHÊ CAO</h1>
+                    <h1>SATSI - VIỆN ĐÀO TẠO KHỞI NGHIỆP VÀ ỨNG DỤNG KHOA HỌC CÔNG NGHỆ CAO</h1>
                     <p>SATSi là đơn vị trực thuộc Bộ Khoa học và Công nghệ, được thành lập bởi đội ngũ chuyên gia hàng đầu và tâm huyết với mong muốn trở thành cánh tay nối dài, cầu nối cho thế hệ trẻ đi đến tương lai.</p>
                 </Link>
             </Description>
@@ -66,6 +66,12 @@ const Description = styled.div`
             line-height: 2.5rem;
             font-size: 1.3rem;
             padding: 0;
+        }
+    }
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
     }
 `

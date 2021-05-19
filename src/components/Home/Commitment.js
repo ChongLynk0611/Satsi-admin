@@ -33,7 +33,7 @@ const StyledWrapper = styled(Wrapper)`
 
 const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 32% 32% 32%;
     grid-gap: 1%;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,8 @@ const Card = styled.div`
 
     p{
         color: ${props => props.theme.colors.main};
-    }
+        padding: 0 6rem;
+    } 
 `
 
 export default Commitment;

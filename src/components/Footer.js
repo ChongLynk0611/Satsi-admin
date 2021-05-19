@@ -106,8 +106,8 @@ const ContainerLink = styled.div`
     max-width: 1200px;
     margin: 0 auto;
     #logo{
-        width: 100%;
-        height: 100%;
+        width: 16rem;
+        height: 16rem;
         margin-bottom: 2rem;
         background-color: white; 
     }
