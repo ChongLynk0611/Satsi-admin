@@ -156,10 +156,6 @@ const Card = styled.div`
         letter-spacing: 1px;
         line-height: 20px;
     }
-    /* p {
-        text-align: justify;
-
-    } */
 
     @media screen and (max-width: 838px) {
         h3{

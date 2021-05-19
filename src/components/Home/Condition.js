@@ -48,7 +48,7 @@ const StyleWrapper = styled(Wrapper)`
         width: 80%;
         height: auto;
         font-size: 1.5rem;
-        font-weight: 400;
+        font-weight: 700;
         color: black;
         background-color: white;
         border-radius: 6px;

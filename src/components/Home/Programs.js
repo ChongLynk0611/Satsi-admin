@@ -1,4 +1,3 @@
-import { useState, Fragment } from "react";
 import Slider from 'react-slick';
 import { useMediaQuery } from 'react-responsive';
 import styled from "styled-components";
@@ -6,48 +5,42 @@ import { Link } from "react-router-dom";
 
 
 import useFetch from '../CustomHooks/useFetch';
-import { Wrapper, TurnInRight } from "../styled";
+import { Wrapper, Rotate } from "../styled";
 
 const Programs = () => {
     const { data, isPending, error } = useFetch(process.env.REACT_APP_API_URL + 'Categories');
-    const [active, setActive] = useState(0);
     const imgUrls = [
-        'https://www.amec.com.vn/wp-content/uploads/2020/01/shutterstock_637324168-696x465-1.jpg',
-        'https://duhocduc.net/uploads/du-hoc-duc/chontruongtheonganhchoduhocduc2018p23.jpg',
-        'https://lh3.googleusercontent.com/proxy/fFw-W2GTq3zQqvarV7HXmktZBq_odqp5YavAH4Ox2zFr3uzK5LScyBwzgFmhgd7WdhTionOmF6UYIMGjVHjhHoAq08KZrn1XM9dsgQaN',
-        'https://dwn.com.vn/wp-content/uploads/2020/05/du-hoc-nghe-co-khi-1-1-1024x597.png',
-        'https://wetalent.edu.vn/wp-content/uploads/2019/06/du-hoc-duc-nganh-logistics-4.jpg',
-        'https://dwn.com.vn/wp-content/uploads/2020/05/du-hoc-nghe-lai-tau-5.jpg'
+        'https://images.pexels.com/photos/3760613/pexels-photo-3760613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        'https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        'https://images.pexels.com/photos/2226458/pexels-photo-2226458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        'https://images.pexels.com/photos/3823220/pexels-photo-3823220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     ]
+    
+    const is1150px = useMediaQuery({ query: '(max-width: 1150px)' });
+    const is700px = useMediaQuery({ query: '(max-width: 700px)' });
 
-    const is1000px = useMediaQuery({ query: '(max-width: 1000px)' });
     let settings = {
-        focusOnSelect: true,
-        pauseOnHover: true,
+        infinite: true,
+        speed: 1000,
+        autoplay: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        swipeToSlide:true,
-        arrows:true,
-        dots: false,
-        speed: 1000,
-        infinite: true,
-        autoplay: true,
-        beforeChange: (current, next) => {
-            setActive(current);
-        }
-    };
+        pauseOnHover: true,
+        arrows: true
+    }
 
-    settings = is1000px ? {
+    settings = is1150px ? {
+        ...settings,
+        slidesToShow: 2,
+        speed: 500,
+    } : settings;
+   
+    settings = is700px ? {
         ...settings,
         slidesToShow: 1,
-        speed: 3000,
-        arrows: true
     } : settings;
-
-
-    const handleClick = (index) => {
-        setActive(index);
-    }
 
     return ( 
         <Container>
@@ -55,30 +48,29 @@ const Programs = () => {
             { isPending && <div>loading...</div> }
             { data && 
                 <StyledWrapper>
-                    <ContentContainer>
-                        <h1>CÁC NGÀNH DU HỌC ĐỨC</h1>
-                        <StyledSlider {...settings} on={(e) => console.log(e)}>
-                            { data.data.map( (program, index) => (
-                                <h3
-                                    className={index === active+1 ? 'active' : ''}
-                                    key={program.CategoryId}
-                                    onClick={() => handleClick(index)}
-                                >{program.CategoryName}</h3>
-                                ))}
-                        </StyledSlider>
-                        { data.data.map( (program, index) => (
-                            active === index ?
-                                <Fragment key={program.CategoryId}>
-                                    <p dangerouslySetInnerHTML={{__html: program.Detail}}></p> 
-                                    <Link id="link" to={`/nghe/${program.CategoryId}`}>TÌM HIỂU NGAY</Link>
-                                </Fragment>
-                                : 
-                                <Fragment key={program.CategoryId}></Fragment>
-                        ))}
-                    </ContentContainer>
-                    { data.data.map( (program, index) => (
-                        active === index ?<div key={program.CategoryId}><img src={imgUrls[index]} alt={program.CategoryName}/></div> : <Fragment key={program.CategoryId}></Fragment>
-                    ))}
+                    <h1>CÁC NGÀNH DU HỌC ĐỨC</h1>
+                    <StyledSlider {...settings}>
+                        {
+                            data.data.map((program, index) => (
+                                <Content key={program.CategoryId}>
+                                    <h2>{program.CategoryName}</h2>
+                                    <div dangerouslySetInnerHTML={{__html: program.Detail }}></div>
+                                    <div id="hover" style={{backgroundImage: `url(${imgUrls[index]})`}}>
+                                        <div id="overlay">
+                                        </div>
+                                        <div id="content">
+                                            <Link to={`/nghe/`+ program.CategoryId}>
+                                                <h2>{program.CategoryName}</h2>
+                                            </Link>
+                                            <Link to={`/nghe/`+ program.CategoryId}>
+                                                <button>TÌM HIỂU THÊM</button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </Content>
+                            ))
+                        }
+                    </StyledSlider>
                 </StyledWrapper>
             }
         </Container>
@@ -86,179 +78,20 @@ const Programs = () => {
 }
 
 const Container = styled.div`
-    overflow: hidden;
+
 `
 
 const StyledWrapper = styled(Wrapper)`
+    padding: 4rem 1.8rem 5rem;
     background-color: ${props => props.theme.colors.main};
-    display: grid;
-    grid-template-columns: 57% 36%;
-    grid-gap: 4%;
-    padding: 2rem 0rem 2rem 3rem;
-    height: 50rem;
-
-    div{
-            /* height: 100%; */
-        img {
-            width: 100%;
-            height:100%;
-            object-fit: cover;
-            border: 1px solid black;
-            background-color: white;
-            animation: ${TurnInRight} 2s ease-out;
-        }
-    }
-
-    @media screen and (max-width: 1000px){
-        background-color: transparent;
-        display: block;
-        position: relative;
-        div{
-            img{
-                opacity: 0.25;
-                /* animation: none; */
-                z-index: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-`
-
-const ContentContainer = styled.div`
-    position: relative;
-    color: ${props => props.theme.colors.text};
-
-    .active{
-        color: ${props => props.theme.colors.text};
-    }
-
-    .slick-track{
-        text-align: center;
-    }
-
-    .slick-arrow{
-        margin: 0rem 0.4rem;
-    }
-
-    ul{
-        margin-left: 4rem;
-    }
-   
     h1{
-        margin-bottom: 2rem;
+        color: ${props => props.theme.colors.text};
         text-align: center;
-    }
-
-    h3{
-        color: #aaa;
-        text-align: center;
-        font-size: 1.8rem;
-        /* padding: 0.5rem 0; */
-        cursor: pointer;
-        &:hover{
-            opacity: 0.6;
-        }
-    }
-
-    ul{
-        font-size: 1.6rem;
-        margin: 3rem 2rem 0 1rem;
-        li{
-            margin: 1.6rem 0;
-        }
-    }
-
-    #link{
-        position: absolute;
-        bottom: 0.5rem;
-        display: inline-block;
-        margin-top: 9rem 0!important;
-        border-radius: 5px;
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-        border: 1px solid white;
-        text-decoration: none;
-        color: white;
-        &:hover{
-            opacity: 0.6;
-        }
-    }
-
-    p,a {
-        animation: ${TurnInRight} 1s ease-out;
-    }
-
-    @media screen and (max-width: 1156px){
-        padding-right: 1.5rem;
-        h1{
-            font-size: 3.2rem;
-        }
-
-        h3{
-            font-size: 1.6rem;
-        }
     }
 
     @media screen and (max-width: 1000px){
-        #link{
-            position: relative;
-            top: 3rem;
-            color: ${props => props.theme.colors.main};
-            font-weight: 500;
-            border-radius: 1rem;
-            border: 1px solid ${props => props.theme.colors.main};
-        }
-        .active{
-            color: ${props => props.theme.colors.main};
-        }
-        position: relative;
-        z-index: 1;
-        margin: 2rem;
-        padding-right: 0;
-        h1 {
+        h1{
             font-size: 2.8rem;
-            color: black;
-        }
-
-        h3{
-            color: ${props => props.theme.colors.main};
-            font-size: 2rem;
-            padding: 1rem 0 0.5rem;
-            cursor: pointer;
-            &:hover{
-                opacity: 0.6;
-            }
-        }
-
-        ul{
-            margin: 0;
-            margin-bottom: 2rem;
-            li{
-                color: black;
-                font-weight: 500;
-            }
-        }
-
-        p{
-            padding: 0;
-            font-weight: 500;
-            color: black;
-        }
-
-        a {
-            
-        }
-
-        .slick-arrow{
-            margin: 0rem 1rem;
-        }
-
-        .slick-next:before, .slick-prev:before{
-            color: ${props => props.theme.colors.main};
         }
     }
 
@@ -266,18 +99,126 @@ const ContentContainer = styled.div`
         h1{
             font-size: 2rem;
         }
-        
-        ul{
-            font-size: 1.6rem;
-            margin: 0;
-            li{
-                margin: 1rem 0;
-            }
-        }
-    }
+    }  
 `
 
 const StyledSlider = styled(Slider)`
+    padding-top: 3rem;
+    color: ${props => props.theme.colors.main};
+
+    .slick-arrow{
+        margin: 0rem 0.85rem;
+    }
+
+    .slick-slide{
+        padding: 0 0.7rem;
+    }
+`
+
+const Content = styled.div`
+    position: relative;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    min-height: 30rem;
+    padding: 2.6rem 2.4rem;
+
+    @media screen and (max-width: 1000px){
+        h2{
+            font-size: 2rem;
+        }
+    }
+
+    @media screen and (max-width: 700px){
+    } 
+
+    h2{
+        color: ${props => props.theme.colors.main};
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+
+    ul{
+        list-style-type: none;
+        padding-top: 1rem;
+        li{
+            font-size: 1.4rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+    }
+
+    p{
+        font-weight: 500;
+        font-size: 1.4rem;
+    }
+
+    #hover{
+        display: none;
+        border-radius: 6px;
+        position: absolute;
+        top: -2px;
+        left: -3px;
+        width: 101.4%;
+        height: 101.4%;
+        background-size: cover;
+        #overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            background-color: black;
+            opacity: 0.6;
+        }
+        #content{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            a{
+                display: inline-block;
+                text-decoration: none;
+                margin: 0 auto;
+                width: auto;
+                h2{
+                    color: white;
+                    margin: 2rem 0;
+                    font-size: 2.3rem;
+                    font-weight: 700;
+                    letter-spacing: 0.3rem;
+                    &:hover{
+                        color: ${props => props.theme.colors.yellow};
+                    }
+                }
+                button{
+                    background-color: ${props => props.theme.colors.main};
+                    color: white;
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    padding: 1.5rem;
+                    border: none;
+                    border-radius: 2rem;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 0.75;
+                        color: ${props => props.theme.colors.yellow};
+                    }
+                }
+            }
+        }
+    }
+    
+    &:hover, &:active {
+        #hover{
+            animation: ${Rotate} 0.8s ease-out;
+            display: block;      
+        }
+    }
 `
 
 export default Programs;

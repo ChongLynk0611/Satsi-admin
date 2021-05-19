@@ -12,9 +12,13 @@ export const Wrapper = styled.div`
 `
 
 export const InforContainer = styled.div`
+    position: relative;
     border-bottom: 1px solid ${props => props.theme.colors.main};
-    margin: 3rem auto;
+    margin: 3.4rem auto 3rem;
     button{
+        position: absolute;
+        top: 0.55rem;
+        left: 0.4rem;
         background-color: transparent;
         font-size: 2rem;
         border: none;
@@ -30,7 +34,7 @@ export const InforContainer = styled.div`
         color: ${props => props.theme.colors.main};
         font-size: 3rem;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 
     h2{
@@ -90,33 +94,19 @@ export const TurnIn = keyframes`
     }
 `
 
-export const TurnInRight = keyframes`
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    50% {
-        opacity: 0.5;
-        /* transform: translateX(100px); */
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-`
-export const TurnInLeft = keyframes`
-    0% {
-        transform: translateX(-100px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-`
-
 export const FadeIn = keyframes`
     0% {
         opacity: 0;
+    }
+`
+
+export const Rotate = keyframes`
+    0%{
+        transform: rotateY(180deg);
+        opacity: 0;
+    }
+    100%{
+        tansform: rotateY(0);
+        opacity: 1;
     }
 `

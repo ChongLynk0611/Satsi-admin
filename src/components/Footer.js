@@ -118,6 +118,11 @@ const Column = styled.div`
     flex-direction: column;
     text-align: left;
     margin-left: 60px;
+
+    @media screen and (max-width: 700px){
+        margin-left: 0;
+        text-align: center;
+    }
 `;
    
 const Row = styled.div`

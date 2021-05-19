@@ -38,7 +38,8 @@ const StyledWrapper = styled(Wrapper)`
         padding-bottom: 2rem;
     }
     p{
-        margin: 0 20rem;
+        text-align: center;
+        margin: 0 34rem;
         line-height: rem;
         font-size: ${props => props.theme.fontSize.p};
     }
