@@ -36,9 +36,9 @@ const Image = () => {
 }
  
 const Container = styled.div`
-    background-color: ${props => props.theme.colors.main};
 `
 const StyledWrapper = styled(Wrapper)`
+    background-color: ${props => props.theme.colors.main};
     text-align: center;
     color: ${props => props.theme.colors.text};
 
@@ -77,6 +77,7 @@ const StyledWrapper = styled(Wrapper)`
 `
 
 const CardContainer = styled.div`
+    padding: 0 2rem;
     display: grid;
     grid-template-columns: 30% 30% 30%;
     grid-gap: 5%;
@@ -90,7 +91,8 @@ const Card = styled.div`
     background-color: white;
     margin: 2rem 0;
     height: 30rem;
-    border: 1px solid gray;
+    border-radius: 5px;
+    overflow: hidden;
 
     img {
         width: 100%;

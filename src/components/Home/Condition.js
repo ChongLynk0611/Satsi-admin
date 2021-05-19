@@ -27,12 +27,12 @@ const Condition = () => {
 }
  
 const Container = styled.div`
-    background-color: ${props => props.theme.colors.main};
     color: ${props => props.theme.colors.text};
     text-align: center;
 `
 
 const StyleWrapper = styled(Wrapper)`
+    background-color: ${props => props.theme.colors.main};
     & > h1 {
         font-size: ${props => props.theme.fontSize.h1};
         padding-top: 3rem;
