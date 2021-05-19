@@ -11,7 +11,7 @@ const Footer = () => {
                 <ContainerLink>
                     <Row>
                         <Column>
-                            <img src={logo} alt="logo" />
+                            <img id="logo" src={logo} alt="logo" />
                         </Column>
                         <Column>
                             <Heading>Về chúng tôi</Heading>
@@ -97,6 +97,18 @@ const Box = styled.div`
         font-size: 1.5rem;
         padding-top: 2rem;
     }
+
+    @media screen and (max-width: 1051px){
+        h1{
+            font-size: 2.8rem;
+        }
+    }
+
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2.5rem;
+        }
+    }
 `;
    
 const ContainerLink = styled.div`
@@ -105,11 +117,13 @@ const ContainerLink = styled.div`
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
+    img{
+        margin: 0 auto;
+    }
     #logo{
         max-width: 16rem;
         max-height: 16rem;
-        margin-bottom: 2rem;
-        background-color: white; 
+        margin-bottom: 2rem; 
     }
 `
    
@@ -140,7 +154,7 @@ const Row = styled.div`
 const FooterLink = styled.a`
     color: #fff;
     margin-bottom: 20px;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-decoration: none;
 
     .spanContact{
@@ -155,7 +169,7 @@ const FooterLink = styled.a`
 `;
    
 const Heading = styled.p`
-    font-size: 24px;
+    font-size: 2rem;
     color: #fff;
     margin-bottom: 40px;
     font-weight: bold;

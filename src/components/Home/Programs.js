@@ -130,9 +130,6 @@ const Content = styled.div`
         }
     }
 
-    @media screen and (max-width: 700px){
-    } 
-
     h2{
         color: ${props => props.theme.colors.main};
         text-align: center;
@@ -216,7 +213,11 @@ const Content = styled.div`
     &:hover, &:active {
         #hover{
             animation: ${Rotate} 0.8s ease-out;
-            display: block;      
+            display: block;   
+
+                @media screen and (max-width: 415px){
+                    animation: none;
+                }    
         }
     }
 `

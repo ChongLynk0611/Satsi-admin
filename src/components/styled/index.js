@@ -35,6 +35,7 @@ export const InforContainer = styled.div`
         font-size: 3rem;
         text-align: center;
         margin-bottom: 3rem;
+        padding: 0 2rem;
     }
 
     h2{
@@ -66,6 +67,36 @@ export const InforContainer = styled.div`
         li {
             font-size: 2rem;
             padding: 0.5rem 0;
+        }
+    }
+
+    @media screen and (max-width: 1051px){
+        div{
+            padding: 0 1rem 4rem;
+        }
+        h1{
+            font-size: 2.8rem;
+        }
+
+        h2{
+            font-size: 2.8rem;
+        }
+    }
+
+    @media screen and (max-width: 615px){
+        h1{
+            font-size: 2rem;
+        }
+
+        h2{
+            font-size: 1.8rem;
+        }
+
+        ul {
+            li {
+                font-size: 1.8rem;
+                padding: 0.5rem 0;
+            }
         }
     }
 `
