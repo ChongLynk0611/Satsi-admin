@@ -171,6 +171,9 @@ const RightSide = styled.div`
         margin: 2rem 0 0 0;
         grid-gap: 2%;
     }
+    @media screen and (max-width: 500px){
+        display: block;
+    }
 `
 
 const ItemRightSide = styled.a`
@@ -200,13 +203,14 @@ const ItemRightSide = styled.a`
 
     @media screen and (max-width: 500px){
         flex-direction: column;
+        margin-bottom: 1rem;
         & > div {
             margin-left: 0;
         }
         img{
             margin-bottom: 1rem;
-            height: 100%;
-            width: auto;
+            height: 30rem;
+            width: 100%;
         }
     }
 `
