@@ -7,11 +7,11 @@ const ContactHeader = () => {
             <StyledWrapper>
                 <a href="mailto: satsi.edu@gmail.com">
                     <i className="far fa-envelope"></i>
-                    <span>SATSI.EDU@GMAIL.COM</span>
+                    <span>satsi.edu@gmail.com</span>
                 </a>
-                <a href="tel: +84962917755">
+                <a href="tel: 02422371777">
                     <i className="fas fa-phone-alt"></i>
-                    <span>(+84) 962 917 755</span>
+                    <span>024.223.71777</span>
                 </a>
             </StyledWrapper>
         </ContactContainer>

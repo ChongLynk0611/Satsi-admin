@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 import { Wrapper } from "../styled";
 
@@ -44,7 +45,7 @@ const News = () => {
 
     return (  
         <StyledWrapper>
-            <h1>TIN TỨC & SỰ KIỆN</h1>
+            <h1><Link to="/tin-tuc">TIN TỨC & SỰ KIỆN</Link></h1>
             <NewsContainer>
                 <LeftSide href='/'>
                     <img src={news[0].img} alt={news[0].title}/>
@@ -97,19 +98,41 @@ const News = () => {
                     </ItemRightSide>
                 </RightSide>
             </NewsContainer>
+            <Link id="Link" to="/tin-tuc">Xem thêm</Link>
         </StyledWrapper>
     );
 }
  
 const StyledWrapper = styled(Wrapper)`
-    padding: 2.5rem 0 0;
+    padding: 2.5rem 0 1.5rem;
     text-align: center;
     margin: 2rem auto;
+    border-top: 1px solid black;
+
     h1{
         font-size: ${props => props.theme.fontSize.h1};
-        color: ${props => props.theme.colors.main};
+        a{
+            text-decoration: none;
+            color: ${props => props.theme.colors.main};
+        }
+        &:hover{
+            opacity: 0.6;
+        }
     }
-    border-top: 1px solid black;
+
+    #Link {
+        font-size: 2rem;
+        color: ${props => props.theme.colors.text};
+        background-color: ${props => props.theme.colors.main};
+        text-decoration: none;
+        border-radius: 1rem;
+        border: 1px solid white;
+        padding: 1rem 2rem;
+
+        &:hover{
+            opacity: 0.6;
+        }
+    }
     @media screen and (max-width: 1000px){
         h1{
             font-size: 2.8rem;

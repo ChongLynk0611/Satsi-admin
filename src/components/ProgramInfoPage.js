@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import useFetch from './CustomHooks/useFetch';
 import { Wrapper, InforContainer } from "./styled";
 
-const ProgramInfor = () => {
+const ProgramInfoPage = () => {
     const {id} = useParams();
     const { data, isPending, error } = useFetch(process.env.REACT_APP_API_URL + 'Categories/' + id);
     const history = useHistory();
@@ -30,4 +30,4 @@ const ProgramInfor = () => {
     );
 }
  
-export default ProgramInfor;
+export default ProgramInfoPage;

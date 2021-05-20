@@ -2,7 +2,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Wrapper, InforContainer } from "./styled";
 
-const IntroductionInfo = () => {
+const IntroductionInfoPage = () => {
     const history = useHistory();
 
     setTimeout(function(){
@@ -43,4 +43,4 @@ const IntroductionInfo = () => {
     );
 }
  
-export default IntroductionInfo;
+export default IntroductionInfoPage;

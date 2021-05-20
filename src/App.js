@@ -8,13 +8,13 @@ import Logo from './components/Logo';
 import Navbar from './components/Navbar';
 import ScrollToTop from "./components/ReuseComponents/ScrollToTop";
 import Fallback from "./components/Fallback";
-import News from "./components/News";
-// import ProgramInfor from "./components/ProgramInfor"
+import NewsPage from "./components/NewsPage";
 
-const ProgramInfor = React.lazy(() => import('./components/ProgramInfor'));
+const ContactPage = React.lazy(() => import("./components/ContactPage"));
+const ProgramInfoPage = React.lazy(() => import('./components/ProgramInfoPage'));
 const Home = React.lazy(() => import('./components/Home'));  
-const IntroductionInfo = React.lazy(() => import("./components/IntroductionInfo"));
-const ReputationInfo = React.lazy(() => import("./components/ReputationInfo"));
+const IntroductionInfoPage = React.lazy(() => import("./components/IntroductionInfoPage"));
+const ReputationInfoPage = React.lazy(() => import("./components/ReputationInfoPage"));
 
 
 function App() {
@@ -29,16 +29,19 @@ function App() {
             <Home />
           </Route>
           <Route path="/gioi-thieu">
-            <IntroductionInfo />
+            <IntroductionInfoPage />
           </Route>
           <Route path="/lo-trinh">
-            <ReputationInfo />
+            <ReputationInfoPage />
           </Route>
           <Route path="/nghe/:id">
-            <ProgramInfor />
+            <ProgramInfoPage />
           </Route>
           <Route path="/news">
-            <News />
+            <NewsPage />
+          </Route>
+          <Route path="/lien-he">
+            <ContactPage />
           </Route>
         </React.Suspense>
       </Switch>

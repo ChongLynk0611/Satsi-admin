@@ -24,13 +24,14 @@ const Navbar = () => {
                 <Nav>
                     <LeftSide>
                         <div id={showLinks ? "hidden" : ""}>
+                            <Link onClick={() => handleClickLink()} to='/'>TRANG CHỦ</Link>
                             <Link onClick={() => handleClickLink()} to='/gioi-thieu'>GIỚI THIỆU</Link>
                             <Link onClick={() => handleClickLink()} to={links[1]}>DU HỌC ĐỨC</Link>  
-                            <Link onClick={() => handleClickLink()} to={links[2]}>DU HỌC ÚC</Link>   
+                            {/* <Link onClick={() => handleClickLink()} to={links[2]}>DU HỌC ÚC</Link>    */}
                             <Link onClick={() => handleClickLink()} to={links[3]}>ĐÀO TẠO TRỰC TUYẾN</Link>  
                             <Link onClick={() => handleClickLink()} to={links[4]}>KHOA HỌC & CÔNG NGHỆ</Link>    
-                            <Link onClick={() => handleClickLink()} to='/news'>TIN TỨC</Link> 
-                            <Link onClick={() => handleClickLink()} to={links[6]}>LIÊN HỆ</Link>
+                            <Link onClick={() => handleClickLink()} to='/tin-tuc'>TIN TỨC</Link> 
+                            <Link onClick={() => handleClickLink()} to='/lien-he'>LIÊN HỆ</Link>
                         </div>
                         <button onClick={handleClickMenuBar}><i className="fas fa-bars"></i></button>
                     </LeftSide>

@@ -1,9 +1,9 @@
 import NewList from './News/NewList'
 
-const News = () => {
+const NewsPage = () => {
     return (  
         <NewList />
     );
 }
  
-export default News;
+export default NewsPage;
