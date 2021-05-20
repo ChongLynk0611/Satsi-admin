@@ -15,17 +15,17 @@ const ProgramInfoPage = React.lazy(() => import('./components/ProgramInfoPage'))
 const Home = React.lazy(() => import('./components/Home'));  
 const IntroductionInfoPage = React.lazy(() => import("./components/IntroductionInfoPage"));
 const ReputationInfoPage = React.lazy(() => import("./components/ReputationInfoPage"));
-
+const Admin =  React.lazy(() => import('./components/AdminPage/AdminPage'));
 
 function App() {
   return (
     <Router>
-      <ContactHeader />
+      {/* <ContactHeader />
       <Logo />
-      <Navbar />
+      <Navbar /> */}
       <Switch>
         <React.Suspense fallback={<Fallback />}>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Home />
           </Route>
           <Route path="/gioi-thieu">
@@ -42,12 +42,13 @@ function App() {
           </Route>
           <Route path="/lien-he">
             <ContactPage />
-          </Route>
+          </Route> */}
+          <Route path="/Admin" component={Admin}/>
         </React.Suspense>
       </Switch>
-      <ContactUs />
+      {/* <ContactUs />
       <Footer />
-      <ScrollToTop />
+      <ScrollToTop /> */}
     </Router>
   );
 }
