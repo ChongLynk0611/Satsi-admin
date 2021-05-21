@@ -54,10 +54,10 @@ function AdminPage(props) {
 
     const initValues = {
         CategoryName:'',
-        subMenuId:'',
-        Content:'',
         Detail:'',
-        Image:null
+        subMenuId:'',
+        Image:null,
+        Content:''
     }
 
     useEffect(() => {
