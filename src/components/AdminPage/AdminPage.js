@@ -65,14 +65,13 @@ function AdminPage(props) {
         const getSubmenu = async () => {
             try {
                 const response = await CategoryApi.getSubmenu();
-                setSubmenu(response.data);
+                setSubmenu(response);
             } catch (error) {
                 console.log("failed fetch submenu: ", error);
             }
         }
 
         getSubmenu();
-        console.log(submenu);
     }, []);
 
     const handleSubmit = (values) => {
@@ -85,7 +84,7 @@ function AdminPage(props) {
             }
         }
         console.log(values);
-        // postCategory(values);
+        postCategory(values);
     }
 
     return (
@@ -109,7 +108,7 @@ function AdminPage(props) {
                     }) => (
                         <form onSubmit={handleSubmit} className="formSubmit">
                             <InputLabel id="handle" style={{fontSize:"16px"}}>Hình thức tuyển</InputLabel>
-                            {   submenu &&<Select
+                            {   submenu && <Select
                                     labelId="handle"
                                     id="handle"
                                     value={values.subMenuId}

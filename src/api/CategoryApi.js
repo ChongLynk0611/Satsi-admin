@@ -7,7 +7,7 @@ const categoryApi ={
     },
     postCategory:(params) => {
         const url= '/Categories';
-        return axiosClient.post(url, {params});
+        return axiosClient.post(url, params);
     }
 }
 
