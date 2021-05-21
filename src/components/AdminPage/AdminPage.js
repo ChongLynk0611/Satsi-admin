@@ -53,10 +53,11 @@ function AdminPage(props) {
     const [submenu, setSubmenu] = useState();
 
     const initValues = {
-        categoryName:'',
-        idSubmenu:'',
-        content:'',
-        detail:''
+        CategoryName:'',
+        subMenuId:'',
+        Content:'',
+        Detail:'',
+        Image:null
     }
 
     useEffect(() => {
@@ -83,7 +84,8 @@ function AdminPage(props) {
                 console.log("failed post category: ", error);
             }
         }
-        postCategory(values);
+        console.log(values);
+        // postCategory(values);
     }
 
     return (
@@ -110,8 +112,8 @@ function AdminPage(props) {
                             {   submenu &&<Select
                                     labelId="handle"
                                     id="handle"
-                                    value={values.idSubmenu}
-                                    name="idSubmenu"
+                                    value={values.subMenuId}
+                                    name="subMenuId"
                                     onChange={handleChange}
                                     style={{fontSize:"16px", width:"20%", margin:"10px 0"}}
                                 >
@@ -124,8 +126,8 @@ function AdminPage(props) {
                             }   
                             <p className="CategoryName">Ngành nghề :</p>
                             <input 
-                                name="categoryName"
-                                value={values.categoryName}
+                                name="CategoryName"
+                                value={values.CategoryName}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 className="Input-category"
@@ -137,14 +139,14 @@ function AdminPage(props) {
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
                                     setContent(data);
-                                    values.content = data;
+                                    values.Content = data;
                                 }}
                                 onReady={ editor => {
                                     // You can store the "editor" and use when it is needed.
                                     console.log( 'Editor is ready to use!', editor );
                                 } }
                                 // onBlur={ handleBlur }
-                                name="content"
+                                name="Content"
                             />
                             <p>Chi tiết:</p>
                             <CKEditor
@@ -153,10 +155,16 @@ function AdminPage(props) {
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
                                     setDetail(data);
-                                    values.detail = data;
+                                    values.Detail = data;
                                 }}
                                 // onBlur={ handleBlur }
-                                name="detail"
+                                name="Detail"
+                            />
+                            <input 
+                                type="file" 
+                                value={values.Image}
+                                onChange={handleChange}
+                                name="Image"
                             />
                             <button className="btn-submit" type="submit">Đăng tải</button>
                         </form>
