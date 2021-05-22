@@ -15,7 +15,7 @@ const ProgramInfoPage = React.lazy(() => import('./components/ProgramInfoPage'))
 const Home = React.lazy(() => import('./components/Home'));  
 const IntroductionInfoPage = React.lazy(() => import("./components/IntroductionInfoPage"));
 const ReputationInfoPage = React.lazy(() => import("./components/ReputationInfoPage"));
-const Admin =  React.lazy(() => import('./components/AdminPage/AdminPage'));
+const Admin =  React.lazy(() => import('./features/Admin'));
 
 function App() {
   return (
