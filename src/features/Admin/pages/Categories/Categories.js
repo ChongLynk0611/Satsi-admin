@@ -111,9 +111,9 @@ function Categories(props) {
     }, []);
 
     const handleSubmit = (values) => {
-        const postCategory = async (data) => {
+        const postCategory = async (values) => {
             try {
-                const response = await CategoryApi.postCategory(data);
+                const response = await CategoryApi.postCategory(values);
                 console.log(response);
             } catch (error) {
                 console.log("failed post category: ", error);
@@ -125,7 +125,7 @@ function Categories(props) {
         data.append("subMenuId", values.subMenuId);
         data.append("Image", values.Image);
         data.append("Content", values.Content);
-        
+
         postCategory(data);
     }
 
