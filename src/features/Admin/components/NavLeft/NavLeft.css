@@ -10,7 +10,7 @@
 }
 .overlay{
     height: 100%;
-    width: 100%;
+    width: 280px;
     background-color: rgba(0, 0, 0, 0.75);
     position: absolute;
     top: 0;
@@ -22,7 +22,7 @@
     position: absolute;
     z-index: 2;
     color: #fff;
-    width: 100%;
+    width: 280px;
     padding: 15px;
 }
 .NL-title{
@@ -35,5 +35,5 @@
     width: 60%;
 }
 .NL-ListItem{
-    
+    width: 100%;
 }
