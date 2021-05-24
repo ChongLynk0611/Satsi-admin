@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <React.Suspense fallback={<div>loading....</div>}>
  
-          <Route path="/Admin" component={Admin}/>
+          <Route path="/" component={Admin}/>
         </React.Suspense>
       </Switch>
     </Router>
